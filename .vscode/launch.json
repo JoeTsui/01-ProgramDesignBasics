@@ -1,0 +1,22 @@
+{
+  "version": "0.2.0",               // 配置文件版本（固定写法）
+  "configurations": [
+    {
+      "name": "Debug current .exe", // 显示在调试启动器下拉框中的名字
+      "type": "cppdbg",             // 类型为 C++ 调试器（使用 C/C++ 扩展）
+      "request": "launch",          // 调试请求类型："launch" 表示启动程序；"attach" 表示附加到已有进程
+      "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
+      // 要调试的程序路径。${fileDirname} 当前打开文件所在的目录路径
+      "args": [],                   // 给程序传的命令行参数（空就代表无参数）
+      "stopAtEntry": false,         // 是否在程序入口处就暂停。true 会在 main() 前停下
+      "cwd": "${fileDirname}",      // 设置当前工作目录（通常就是项目目录）
+      "environment": [],            // 环境变量设置（比如添加 PATH，可留空）
+      "externalConsole": false,
+      // 是否使用独立的命令行窗口。如果你需要输入输出交互，建议设为 true
+      "MIMode": "gdb",              // 调试器类型：GDB（MinGW 附带的是这个）
+      "preLaunchTask": "build current file",  // 与 tasks.json 保持一致
+      "miDebuggerPath": "C:/MinGW/bin/gdb.exe"
+      // 指定 GDB 的完整路径，一定要对！
+    }
+  ]
+}
